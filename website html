@@ -38,7 +38,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <main>
         <h1>Tracking Entergy Outages</h1>
         <h3>Major cities of the world, ranked by their air quality</h3>
         <p>The table below auto-updates every hour. Air quality is scored using the <a href="https://www.airnow.gov/aqi/aqi-basics/">US air quality index</a>.</p>
@@ -47,7 +47,7 @@
             </script>
         </div>
     </div>
-    <div id="footer">
+    <footer>
         <p>This website was made for a tutorial on <a href="https://jonathansoma.com">auto-updating websites</a>.</p>
     </div>
 </html>
