@@ -1,33 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-html    
-<head>      <title>Entergy Tracker</title>    </head>  
+<html lang="en">    
+<head>      
+    <title>Entergy Tracker</title>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=700, initial-scale=1">
     <style>
         body {
             margin: 0;
-            background-color: white;
+            background-color: white; 
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
-        /* Make the page 700px wide, centered */
         .container {
             width: 700px;
             margin: 4em auto;
         }
-        /* Use a nice font */
-        body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-
         h1 {
             text-align: center;
             font-size: 3em;
             margin: 2em 0;
         }
-
         .graphic {
             max-width: 500px;
             margin: 2em auto;
         }
-
         #footer {
             text-align: center;
             padding: 4em;
@@ -37,16 +32,16 @@ html  
     </style>
 </head>
 <body>
-    <main>
+    <main class="container">
         <h1>Outage Tracker</h1>
         <h3>Major cities of the world, ranked by their air quality</h3>
         <p>The table below auto-updates every hour. Air quality is scored using the <a href="https://www.airnow.gov/aqi/aqi-basics/">US air quality index</a>.</p>
         <div class="graphic">
             <iframe title="" aria-label="Table" id="datawrapper-chart-lKGS4" src="https://datawrapper.dwcdn.net/lKGS4/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="1799" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
-            </script>
         </div>
-    </div>
-    <footer>
+    </main>
+    <footer id="footer">
         <p>This website was made for a tutorial on <a href="https://jonathansoma.com">auto-updating websites</a>.</p>
-    </div>
+    </footer>
+</body>
 </html>
