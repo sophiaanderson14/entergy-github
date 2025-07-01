@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Tracking Entergy Outages</title>
+html    
+<head>      <title>Entergy Tracker</title>    </head>  
     <style>
         body {
             margin: 0;
