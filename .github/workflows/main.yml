@@ -28,7 +28,7 @@ jobs:
     - name: Install all necessary packages
       run: pip install jupyter lxml pandas requests beautifulsoup4 html5lib
     - name: Scraping today's data
-      run: python 2025-7-1 10.40.csv
+      run: python entergy_scrapper.py 2025-7-1 10.40.csv
     - name: Commit and push any changes
       run: |-
         git config user.name "Automated"
