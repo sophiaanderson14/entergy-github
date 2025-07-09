@@ -21,7 +21,7 @@ def current_entergy(location,area):
     #add current time to a column
     entergy["time pulled"] = now
     filename = f"{location.lower()}-{area}.csv"
-    df.to_csv(filename, mode='a', index=False, header=False)
+    entergy.to_csv(filename, mode='a', index=False, header=False)
     print(path)
     entergy.to_csv(path)
     return entergy
