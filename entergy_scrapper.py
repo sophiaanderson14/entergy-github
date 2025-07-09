@@ -22,6 +22,6 @@ def current_entergy(location,area):
     entergy["time pulled"] = now
     filename = f"{location.lower()}-{area}.csv"
     entergy.to_csv(filename, mode='a', index=False, header=False)
-    print(path)
-    entergy.to_csv(path)
+    print(filename)
+    entergy.to_csv(filename)
     return entergy
