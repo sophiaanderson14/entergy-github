@@ -20,8 +20,8 @@ def current_entergy(location,area):
     entergy["utility"] = "Entergy"
     #add current time to a column
     entergy["time pulled"] = now
-    title = "{}-{}-{} {}.{}".format(now.year,now.month,now.day,now.hour,now.minute)
-    path = "data/{}/{}/{}/{}.csv".format(location.lower(),area,"entergy",title)
+    filename = f"{location.lower()}-{area}.csv"
+    df.to_csv(filename, mode='a', index=False, header=False)
     print(path)
     entergy.to_csv(path)
     return entergy
