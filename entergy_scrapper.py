@@ -22,11 +22,11 @@ def current_entergy(location,area):
     entergy["time pulled"] = now
   # Convert decimal to percent, round, and add percent sign, if column exists
     if "percentageWithoutPower" in entergy.columns:
-    entergy["percentageWithoutPower"] = (
-        (entergy["percentageWithoutPower"].astype(float) * 100).round(2).astype(str) + "%"
-    )
-else:
-    raise ValueError(
+        entergy["percentageWithoutPower"] = (
+            (entergy["percentageWithoutPower"].astype(float) * 100).round(2).astype(str) + "%"
+        )
+    else:
+        raise ValueError(
         "Column 'percentageWithoutPower' not found in DataFrame. Available columns: " + ', '.join(entergy.columns)
     )
     filename = f"{location.lower()}-{area}.csv"
