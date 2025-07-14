@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime
 import math
 from time import sleep
+import os
 
 def current_entergy(location,area):
     #opening base URL
