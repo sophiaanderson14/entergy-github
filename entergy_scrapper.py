@@ -23,6 +23,7 @@ def current_entergy(location,area):
     # ... previous code ...
     entergy["utility"] = "Entergy"
     entergy["time pulled"] = now
+    df = pd.read_csv('louisiana-county.csv')
     df['time pulled'] = pd.to_datetime(df['time pulled']).dt.strftime('%m-%d-%Y')
 
     if "customersAffected" in entergy.columns and "customersServed" in entergy.columns:
