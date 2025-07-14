@@ -20,8 +20,11 @@ def current_entergy(location,area):
     entergy["utility"] = "Entergy"
     #add current time to a column
     entergy["time pulled"] = now
+     # Convert decimal to percent, round, and add percent sign
+    entergy["percentageWithoutPower"] = (
+        (entergy["percentageWithoutPower"].astype(float) * 100).round(2).astype(str) + "%"
+    )
     filename = f"{location.lower()}-{area}.csv"
-    entergy.to_csv(filename, mode='a', index=False, header=False)
-    print(filename)
-    entergy.to_csv(filename)
+    entergy.to_csv(filename, index=False)
+    print(f"Saved updated data to {filename}")
     return entergy
