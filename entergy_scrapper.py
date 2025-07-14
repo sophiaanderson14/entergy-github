@@ -38,6 +38,7 @@ def current_entergy(location,area):
 
     df = pd.read_csv('louisiana-county.csv')
     df['time pulled'] = pd.to_datetime(df['time pulled']).dt.strftime('%m-%d-%Y')
+    os.makedirs(os.path.dirname(louisiana_county.csv), exist_ok=True)
     filename = f"{location.lower()}-{area}.csv"
     entergy.to_csv(filename, index=False)
     print(f"Saved updated data to {filename}")
