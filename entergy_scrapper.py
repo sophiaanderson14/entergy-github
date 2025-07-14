@@ -23,8 +23,7 @@ def current_entergy(location,area):
     # ... previous code ...
     entergy["utility"] = "Entergy"
     entergy["time pulled"] = now
-    df = pd.read_csv('louisiana-county.csv')
-    df['time pulled'] = pd.to_datetime(df['time pulled']).dt.strftime('%m-%d-%Y')
+
 
     if "customersAffected" in entergy.columns and "customersServed" in entergy.columns:
         entergy["percentageWithoutPower"] = (
@@ -36,6 +35,9 @@ def current_entergy(location,area):
         raise ValueError(
         "Column 'percentageWithoutPower' not found in DataFrame. Available columns: " + ', '.join(entergy.columns)
     )
+
+    df = pd.read_csv('louisiana-county.csv')
+    df['time pulled'] = pd.to_datetime(df['time pulled']).dt.strftime('%m-%d-%Y')
     filename = f"{location.lower()}-{area}.csv"
     entergy.to_csv(filename, index=False)
     print(f"Saved updated data to {filename}")
