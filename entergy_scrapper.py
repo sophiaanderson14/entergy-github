@@ -20,12 +20,17 @@ def current_entergy(location,area):
     entergy["utility"] = "Entergy"
     #add current time to a column
     entergy["time pulled"] = now
-  # Convert decimal to percent, round, and add percent sign, if column exists
-    if "percentageWithoutPower" in entergy.columns:
+    # ... previous code ...
+    entergy["utility"] = "Entergy"
+    entergy["time pulled"] = now
+
+    if "customersAffected" in entergy.columns and "customersServed" in entergy.columns:
         entergy["percentageWithoutPower"] = (
-            (entergy["percentageWithoutPower"].astype(float) * 100).round(2).astype(str) + "%"
+            (entergy["customersAffected"].astype(float) / entergy["customersServed"].astype(float) * 100)
+            .round(2).astype(str) + "%"
         )
     else:
+        entergy["percentageWithoutPower"] = ""  # Or use "N/A"
         raise ValueError(
         "Column 'percentageWithoutPower' not found in DataFrame. Available columns: " + ', '.join(entergy.columns)
     )
