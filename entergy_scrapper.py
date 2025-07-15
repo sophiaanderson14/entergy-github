@@ -32,7 +32,7 @@ def current_entergy(location,area):
             .round(2).astype(str) + "%"
         )
     else:
-        entergy["percentageWithoutPower"] = ""  # Or use "N/A"
+        entergy["percentageWithoutPower"] = "N/A"  # Or use "N/A"
         raise ValueError(
         "Column 'percentageWithoutPower' not found in DataFrame. Available columns: " + ', '.join(entergy.columns)
     )
