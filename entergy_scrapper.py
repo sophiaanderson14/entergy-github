@@ -26,6 +26,9 @@ except requests.exceptions.RequestException as e:
     print(f"Error fetching data: {e}")
     exit() # exit() is used to stop a script when not inside a function.
 
+filename = f"{location.lower()}-{area}.csv"
+df.to_csv(filename, mode='a', index=False, header=False)
+
 # --- 3. Process the Newly Fetched Data ---
 # Convert the new data into a pandas DataFrame.
 new_data_df = pd.DataFrame(data)
@@ -64,9 +67,6 @@ except FileNotFoundError:
 # This is the guaranteed formatting step. It runs on the ENTIRE combined DataFrame.
 print("Standardizing 'time pulled' column to MM-DD-YYYY format...")
 combined_df['time pulled'] = pd.to_datetime(combined_df['time pulled']).dt.strftime('%m-%d-%Y')
-
-filename = f"{location.lower()}-{area}.csv"
-df.to_csv(filename, mode='a', index=False, header=False)
 
 # --- 6. Save the Final Result ---
 # Ensure the 'data/' directory exists before saving.
