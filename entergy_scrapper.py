@@ -59,14 +59,14 @@ except FileNotFoundError:
     # If the file doesn't exist (first run), the new data is our starting point.
     print(f"'{DESTINATION_FILE}' not found. Creating a new history file.")
     combined_df = new_data_df
-    
-filename = f"{location.lower()}-{area}.csv"
-df.to_csv(filename, mode='a', index=False, header=False)
 
 # --- 5. Final Formatting ---
 # This is the guaranteed formatting step. It runs on the ENTIRE combined DataFrame.
 print("Standardizing 'time pulled' column to MM-DD-YYYY format...")
 combined_df['time pulled'] = pd.to_datetime(combined_df['time pulled']).dt.strftime('%m-%d-%Y')
+
+filename = f"{location.lower()}-{area}.csv"
+df.to_csv(filename, mode='a', index=False, header=False)
 
 # --- 6. Save the Final Result ---
 # Ensure the 'data/' directory exists before saving.
