@@ -6,7 +6,7 @@ import os
 # --- 1. Configuration ---
 # Define the single, permanent file where all data will be stored.
 # CORRECTED to use the filename you specified.
-DESTINATION_FILE = 'data/louisiana-county.csv' 
+DESTINATION_FILE = 'louisiana-county.csv' 
 # Define the parameters for the API call.
 LOCATION = "Louisiana"
 AREA = "Parish" # Note: The API uses "Parish", but we are saving to "county" as requested.
