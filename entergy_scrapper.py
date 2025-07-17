@@ -11,6 +11,27 @@ DESTINATION_FILE = 'louisiana-county.csv'
 LOCATION = "Louisiana"
 AREA = "Parish" # Note: The API uses "Parish", but we are saving to "county" as requested.
 
+def current_entergy(location,area):
+    #opening base URL
+    url = "https://entergy.datacapable.com/datacapable/v1/entergy/Entergy{}/{}".format(location,area)
+    print(url)
+    #get current time
+    now = datetime.now()
+    #go to webpage
+    r = requests.get(url)
+    #convert into json
+    data = r.json()
+    #convert into pandas dataframe
+    entergy = pd.DataFrame(data)
+    #label utility as entergy
+    entergy["utility"] = "Entergy"
+    #add current time to a column
+    entergy["time pulled"] = now
+    # ... previous code ...
+    entergy["utility"] = "Entergy"
+    entergy["time pulled"] = now
+
+
 # --- 2. Fetch New Data from API ---
 url = f"https://entergy.datacapable.com/datacapable/v1/entergy/Entergy{LOCATION}/{AREA}"
 print(f"Fetching new data from: {url}")
